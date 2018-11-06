@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: sample-rc
+spec:
+  replicas: 2
+  selector: 
+    app: rabbit
+  templates:
+    metadata:
+      labels:
+        app: rabbit
+    spec:
+      conatainers:
+      - name: nginx
+        image: nginx
+        ports:
+        - name: nginx
+          Port: 80
+
+      
+
