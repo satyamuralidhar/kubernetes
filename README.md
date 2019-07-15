@@ -14,6 +14,7 @@ Master dont have pods.only slaves has pods.
 every pod have ip address.
 
 inside pods we can run multiple containers.
+
 main thing is we can choose conntainer with out have port conflicts.
 
 ![kubernetes-reference-architecture](https://user-images.githubusercontent.com/38804803/60717605-e679aa80-9f3f-11e9-9e69-b0e0cb4026bf.jpg)
@@ -21,7 +22,7 @@ main thing is we can choose conntainer with out have port conflicts.
 Scheduler:
         it's scheduling pods accross multiple nodes.
         
-control manager:
+Control manager:
         node controller 
         replication controller
         end point controller
@@ -31,7 +32,9 @@ control manager:
   mentioned in the spec file.
   
   etcd:
-    its a light weighted key value database it is devoloped by core os.
-    it is very popular key value database.
-    it store cuurent cluster state any point of time
+   its a light weighted key value database it is devoloped by core os.
+    
+   it is very popular key value database.
+    
+   it store cuurent cluster state any point of time
      
