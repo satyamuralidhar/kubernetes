@@ -30,6 +30,7 @@ main thing is we can choose conntainer with out have port conflicts.
         
     it is resposible for overall health of entire cluster.it ensures that nodes are up and running all the times correct pods are running
     mentioned in the spec file.
+    
   
       etcd:
         its a light weighted key value database it is devoloped by core os.
