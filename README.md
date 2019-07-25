@@ -1,7 +1,7 @@
 # kubernates-street
 
 
-Sample Architecture of Kubernates
+                                       Sample Architecture of Kubernates
 
 kubernates its mainly used for container orchestration purpose.
 
