@@ -13,4 +13,4 @@ spec:
   - port: 80
   type: LoadBalancer
 
-          
+         #note: if loadbalancer is pending or notworrking use type: NodePort instead of LoadBalancer
