@@ -21,9 +21,9 @@ spec:
   containers: 
   - name: redis-slave
     image: gcr.io/goolge_samples/gb-redisslave:v1
-      resources: 
-        requests: 
-          cpu: 100m
-          memory: 100Mi
+    resources: 
+      requests: 
+        cpu: 100m
+        memory: 100Mi
   ports: 
   - containerPort:m 6379

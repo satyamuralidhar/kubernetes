@@ -19,9 +19,9 @@ template:
     containers: 
     - name: php-guestbook
       image: gcr.io/google-samples/gb-frontend:v4
-        resources: 
-          requests: 
-            cpu: 100m
-            memory: 100Mi
+      resources: 
+        requests: 
+          cpu: 100m
+          memory: 100Mi
       ports:
         containerPort: 80
