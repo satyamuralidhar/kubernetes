@@ -13,7 +13,6 @@ ports:
 type: ClutserIP 
 selector: 
   matchLables:
-    labels: 
-      app: redis 
-      role: master 
-      tier: backend
+    app: redis 
+    role: master 
+    tier: backend
