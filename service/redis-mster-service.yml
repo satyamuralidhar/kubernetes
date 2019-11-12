@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata: 
+  name: service-master
+  lables: 
+    app: redis
+    role: master 
+    tier: backend
+spec: 
+ports: 
+- port: 6379
+  targetPort: 6379
+type: ClutserIP 
+selector: 
+  matchLables:
+    labels: 
+      app: redis 
+      role: master 
+      tier: backend
