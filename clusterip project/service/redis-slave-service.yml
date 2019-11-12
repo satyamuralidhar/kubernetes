@@ -11,8 +11,8 @@ spec:
   - port: 6379
   selector: 
     matchLables:  
-        app: redis
-        role: slave
-        tier: backend     
+      app: redis
+      role: slave
+      tier: backend     
   type: ClusterIP
 
