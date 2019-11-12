@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: guestbookapp
+  lables:
+    app: guestbook
+spec: 
+  replicas: 2
+  selector: 
+    matchLables: 
+      app: guestbook
+      tier: frontend
+template: 
+  metadata: 
+    lables: 
+      app: guestbook
+      tier: frontend
+  spec: 
+    containers: 
+    - name: php-guestbook
+      image: gcr.io/google-samples/gb-frontend:v4
+        resources: 
+          requests: 
+            cpu: 100m
+            memory: 100Mi
+      ports:
+        containerPort: 80
