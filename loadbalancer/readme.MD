@@ -1,6 +1,11 @@
 deploy pod
+      
       #kubectl create -f deploy.yml
+      
+      
       to see the deployment 
+      
+      
       #kubectl get deploy 
 
 expose the pod 
