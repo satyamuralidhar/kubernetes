@@ -1,5 +1,5 @@
 deploy pod
-      # kubectl create -f deploy.yml
+      #kubectl create -f deploy.yml
       to see the deployment 
       #kubectl get deploy 
 
