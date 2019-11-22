@@ -19,7 +19,7 @@ spec:
     spec:
      containers: 
      - name: mysql-container
-       image: muralidhar123/my-mysql:latest
+       image: muralidhar123/mysql:v1
        ports:
        - containerPort: 3306
        env:
