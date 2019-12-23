@@ -54,3 +54,5 @@ spec:
   ports: 
   - port: 8080
 
+
+#http://<ip>:nodeport
