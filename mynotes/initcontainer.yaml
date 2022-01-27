@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: html
+  labels: 
+    app: html 
+spec:
+  initContainers:
+  - name: clone
+    image: bitnami/git
+    command:
+    - git
+    - clone
+    - https://github.com/muralidhar/sample-k8s.git
+    - /tmp
+    volumeMounts:
+    - name: mount
+      mountPath: "/tmp"
+  containers: 
+  - name: nginx
+    image: nginx:latest
+    ports: 
+    - name: nginx
+      containerPort: 80
+      volumeMounts: 
+      - name: mount
+        mountPath: "/usr/share/nginx/html"
+  volumes: 
+  - name: emptydirvolume
+    emptyDir: {}
+
+
+#kubectl apply -f pod-initContainer.yaml
+#kubectl get po,svc
+#kubectl logs <podname> -c <initConatiner name>
+#minicube ip ---> shows minicube ip
