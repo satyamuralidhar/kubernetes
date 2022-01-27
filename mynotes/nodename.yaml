@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: nginx
+spec: 
+  containers:
+  - name: nginx
+    image: nginx:latest
+    ports:
+      containerPort: 80
+  nodeName: minicube-01
+
+#kubectl get nodes -o wide
+# checking the yaml file of pirticular running pod and append to pirticular yaml file
+#kubectl get nginx -o yaml >> nginx.yaml
