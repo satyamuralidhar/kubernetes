@@ -63,3 +63,40 @@ cat ~/.kube/config
 
 kubectl --kubeconfig ./admin.config config view -o jsonpath='{.contexts[*].name}'
 kubectl --kubeconfig ./admin.config get pods --namespace=javaproject
+
+liveness:
+========
+liveness probe is resposible for telling to k8s cluster conatiner need to be restarted because of there is a deadlock is happen in k8s cluster in that case container should not work.
+
+livenessprobe is mentioned in conatiner section in manifest file.
+
+livenessProbe:
+  httpGet:
+    path: /hello
+    #health status endpoint of the application
+    port: 8080
+    #port on which it is running
+  initialDelaySeconds: 15
+  #after container is starting it will wait for 15sec after then checking    any deadlock is happening or not.
+  periodSeconds: 10
+  #regular interval after the application startup.
+
+note:
+====
+  intials delayseconds and period seconds work same but initialdelayseconds is useful when you deployed your application first time.its gona wait for the 15 sec.
+  after that they can regularly using peroidseconds.
+
+  az aks:
+  ======
+  login in k8s 
+  #az aks Get-Credentials --resource-group kube-rg --name cluster-1
+  merged "Cluster-1" as a current context in /home/satya/.kube/config
+
+  manage identity:
+  ============
+  #az aks create -g myRSG -n myManagedCluster --enable-managed-identity
+  
+  update existing managed identity:
+  ==============================
+
+  #az aks update -g <RGname> -n <AKSName> --enable-managed-identity --assign-dentity <UserAssignedIdentityResourceID> az aks create -g MyResourceGroup -n MyManagedCluster --enable-managed-identity
