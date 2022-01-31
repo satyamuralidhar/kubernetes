@@ -1,3 +1,80 @@
+Kubeadm:
+========
+kubeadm helps with installing and configuring kubernates cluster.
+kubeadm init [flags] ==> on master 
+kubeadm join ==> on worker node
+kubeadm join --token [] --discovery-token-cacert-hash []
+kubeadm token [create|delete|list|generate] [flags] ==> this is helps us to create token.
+kubeadm version 
+kubeadm upgrade plan [version] [flags] ==> we can upgrade and downgrade the cluster if it is necessary.
+
+labels: 
+======
+kubectl get pod --show-labels ==> to list out labels assign to all pods
+kubectl label pod nginx-pod env- ==> too delete the label from pod
+kubectl label pod nginx-pod env=qa --overwrite ==> overwrite the pod label
+
+kubectl get pod -l "env=dev" ==> it will listout the pods in env=dev labels
+kubectl get pod -l "env=dev" , "env=test" ==> it will show both dev and test env
+
+labeling a node
+kubectl label node <nodename> disk=ssd
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tomcat
+spec: 
+  containers: 
+  - name: tomcat-container
+    image: tomcat:latest
+    ports: 
+    containerPort: 8080
+  nodeSelector:
+    disk: ssd
+
+
+set based selector:
+==================
+
+selector:
+  matchLabels: 
+    component: redis
+  matchExpressions:
+    - {key: env , operator: In , values: [dev,test]}
+    - {key: env , operator: NotIn , values: [prod]}
+  
+
+annotations: 
+============
+annotation is non identified metadata in k8s . some of the reosources using annotations like prometheus need mertics from pods need to monitoring via some endpoint. that endpoints we will configuring on metadata section as a annontations.
+
+these are the external tools which is interated with k8s.
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tomcat
+  annotations: 
+    gitbranch: master
+    prometheus.io/path: /metrics
+    prometheus.io/port: "9012"
+  labels: 
+    stage: dev
+spec: 
+  containers: 
+  - name: tomcat-container
+    image: tomcat:latest
+    ports: 
+    containerPort: 8080
+
+pre-reqs:
+=========
+3GB or more RAM
+3cpu or more
+full network connectivity among all the machines in the servers.
+disable SELINUX and SWAP of all nodes.
+
 User Managment:
 ==============
 
@@ -100,3 +177,4 @@ note:
   ==============================
 
   #az aks update -g <RGname> -n <AKSName> --enable-managed-identity --assign-dentity <UserAssignedIdentityResourceID> az aks create -g MyResourceGroup -n MyManagedCluster --enable-managed-identity
+
